@@ -7,4 +7,4 @@
 # Introduction to Kotlin/Native Hands-On Lab
 
 
-This repository is the code corresponding to the hands-on lab [Introduction to Kotlin/Native Hands-On Lab](https://play.kotlinlang.org/hands-on/intro-kotlin-native). 
+This repository is the code corresponding to the hands-on lab [Introduction to Kotlin/Native Hands-On Lab](https://play.kotlinlang.org/hands-on/Introduction%20to%20Kotlin%20Native/01_Introduction). 
