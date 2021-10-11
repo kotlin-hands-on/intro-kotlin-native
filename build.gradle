@@ -1,44 +1,41 @@
 plugins {
-    id 'kotlin-multiplatform' version '1.5.30'
+    id 'org.jetbrains.kotlin.multiplatform' version '1.5.31'
 }
+
+group = 'me.user'
+version = '1.0-SNAPSHOT'
+
 repositories {
     mavenCentral()
 }
+
 kotlin {
-    // For ARM, should be changed to iosArm32 or iosArm64
-    // For Linux, should be changed to e.g. linuxX64
-    // For MacOS, should be changed to e.g. macosX64
-    // For Windows, should be changed to e.g. mingwX64
-    macosX64("macos") {
-        compilations.main {
-            cinterops {
-                libcurl /*{
-                    defFile project.file("libcurl.def")
-                    packageName 'com.jetbrains.handson.http'
-                    compilerOpts '-I/'
-                    includeDirs.allHeaders("")
-                }*/
-            }
-        }
+    def hostOs = System.getProperty("os.name")
+    def isMingwX64 = hostOs.startsWith("Windows")
+    def nativeTarget
+    if (hostOs == "Mac OS X") nativeTarget = macosX64('native')
+    else if (hostOs == "Linux") nativeTarget = linuxX64("native")
+    else if (isMingwX64) nativeTarget = mingwX64("native")
+    else throw new FileNotFoundException("Host OS is not supported in Kotlin/Native.")
+
+    nativeTarget.with {
+        compilations.main { // NL
+            cinterops {     // NL
+                libcurl     // NL
+            }               // NL
+        }                   // NL
         binaries {
             executable {
-                // Change to specify fully qualified name of your application's entry point:
-               entryPoint = 'com.jetbrains.handson.http.main'
-                // Specify command-line arguments, if necessary:
-                runTask?.args('')
+                entryPoint = 'main'
             }
         }
     }
     sourceSets {
-        // Note: To enable common source sets please comment out 'kotlin.import.noCommonSourceSets' property
-        // in gradle.properties file and re-import your project in IDE.
-        macosMain {
+        nativeMain {
+
         }
-        macosTest {
+        nativeTest {
+
         }
     }
 }
-
-// Use the following Gradle tasks to run your application:
-// :runReleaseExecutableMacos - without debug symbols
-// :runDebugExecutableMacos - with debug symbols

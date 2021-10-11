@@ -4,7 +4,7 @@
 
 
 
-# Introduction to Kotlin/Native Hands-On Lab
+# Kotlin/Native tutorial: C interop and libcurl
 
 
-This repository is the code corresponding to the hands-on lab [Introduction to Kotlin/Native Hands-On Lab](https://play.kotlinlang.org/hands-on/Introduction%20to%20Kotlin%20Native/01_Introduction). 
+This repository is the resulting code corresponding to the [Creating an app using C Interop and libcurl](https://kotlinlang.org/docs/curl.html) tutorial. 
