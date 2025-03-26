@@ -7,4 +7,4 @@
 # Kotlin/Native tutorial: C interop and libcurl
 
 
-This repository is the resulting code corresponding to the [Creating an app using C Interop and libcurl](https://kotlinlang.org/docs/curl.html) tutorial. 
+This repository is the resulting code corresponding to the [Creating an app using C interop and libcurl](https://kotlinlang.org/docs/native-app-with-c-and-libcurl.html) tutorial. 
