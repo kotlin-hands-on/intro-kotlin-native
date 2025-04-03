@@ -1,6 +1,7 @@
 import kotlinx.cinterop.*
 import libcurl.*
 
+@OptIn(ExperimentalForeignApi::class)
 fun main(args: Array<String>) {
     val curl = curl_easy_init()
     if (curl != null) {
